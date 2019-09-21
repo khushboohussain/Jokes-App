@@ -1,0 +1,20 @@
+<ion-header *ngIf="showContinueButton == false">
+  <ion-navbar>
+    <!-- <ion-title>Terms And Condition</ion-title> -->
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div class="terms_and_conditions_content">
+    <p class="" text-center>
+      <b>{{'heading'| translate}}</b>
+    </p>
+    <p>{{'para-I'| translate}}</p>
+    <p>{{'para-II'| translate}}</p>
+    <p>{{'para-III'| translate}}</p>
+  </div>
+</ion-content>
+
+<ion-footer class="tc_page_footer" *ngIf="showContinueButton == true">
+  <button class="tc_continue_btn" ion-button (click)="goNext()">{{'Continue'| translate}}</button>
+</ion-footer>

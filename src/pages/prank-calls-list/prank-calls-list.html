@@ -1,0 +1,66 @@
+<ion-header>
+  <ion-navbar>
+    <div class="navbar_wrapper has_dynamic_back_btn">
+      <!-- <div class="nav_left">
+        <ion-icon name="close"></ion-icon>
+      </div> -->
+      <div class="nav-center d-block w-100">
+        <h3 class="nav-tiltle" text-center>{{'Prank List' | translate }}</h3>
+      </div>
+      <!-- <div class="nav_right">
+        <span class="counter">1+</span>
+        <img src="assets/imgs/01_Screen.png" alt="" class="icon" />
+      </div> -->
+    </div>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div class="prank_calls_list" *ngFor="let pranklist of prenkList">
+    <!-- Old Design -->
+    <!-- <div class="prank_calls_list_item" (click)="callScreen(pranklist)">
+      <div class="img">
+        <img src="assets/imgs/04_Screen-4.png" alt="" />
+      </div>
+      <div class="text">
+        <h6>{{pranklist.title | translate }}</h6>
+        <p>{{pranklist.discription | translate }}</p>
+      </div>
+    </div> -->
+
+
+    <div class="prank_calls_list_item">
+      <div class="prank_calls_list_item_head">
+        <h6>{{pranklist.title | translate }}</h6>
+        <div class="icon_text" (click)="callScreen(pranklist)">
+          <img src="assets/imgs/04_Screen-3.png" alt="" class="icon call_icon" />
+          <span class="text send_call">{{'SEND CALL' | translate}}</span>
+        </div>
+      </div>
+      <div class="prank_calls_list_item_body">
+        <div class="img">
+          <img src="{{pranklist.image || 'assets/imgs/04_Screen-4.png'}}" alt="" />
+        </div>
+        <div class="text">
+          <audio controls controlsList="nodownload" preload="metadata">
+            <source src="{{pranklist.audioData}}" type="audio/mp3">
+          </audio>
+          <p>{{pranklist.discription | translate }}</p>
+        </div>
+      </div>
+    </div>
+
+    <!--
+    <div class="prank_calls_list_item" (click)="callScreen()">
+      <div class="img">
+        <img src="assets/imgs/04_Screen-4.png" alt="" />
+      </div>
+      <div class="text">
+        <h6>Lorem, ipsum dolor.</h6>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas quasi sequi nemo sit quod odit.</p>
+      </div>
+    </div>
+    -->
+
+  </div>
+</ion-content>

@@ -1,0 +1,95 @@
+{
+  "name": "JokesPhone",
+  "version": "0.0.1",
+  "author": "Ionic Framework",
+  "homepage": "http://ionicframework.com/",
+  "private": true,
+  "scripts": {
+    "start": "ionic-app-scripts serve",
+    "clean": "ionic-app-scripts clean",
+    "build": "ionic-app-scripts build",
+    "lint": "ionic-app-scripts lint"
+  },
+  "dependencies": {
+    "@angular/animations": "5.2.11",
+    "@angular/common": "5.2.11",
+    "@angular/compiler": "5.2.11",
+    "@angular/compiler-cli": "^8.2.7",
+    "@angular/core": "5.2.11",
+    "@angular/forms": "5.2.11",
+    "@angular/http": "5.2.11",
+    "@angular/platform-browser": "5.2.11",
+    "@angular/platform-browser-dynamic": "5.2.11",
+    "@ionic-native/android-permissions": "4.20.0",
+    "@ionic-native/contacts": "4.20.0",
+    "@ionic-native/core": "4.18.0",
+    "@ionic-native/facebook": "4.17.0",
+    "@ionic-native/file": "4.20.0",
+    "@ionic-native/file-transfer": "4.20.0",
+    "@ionic-native/google-plus": "^4.20.0",
+    "@ionic-native/social-sharing": "4.20.0",
+    "@ionic-native/splash-screen": "4.18.0",
+    "@ionic-native/status-bar": "4.18.0",
+    "@ionic/pro": "2.0.4",
+    "@ionic/storage": "2.2.0",
+    "@ngx-translate/core": "8.0.0",
+    "@ngx-translate/http-loader": "2.0.0",
+    "cordova-android": "8.0.0",
+    "cordova-plugin-android-permissions": "1.0.0",
+    "cordova-plugin-contacts": "3.0.1",
+    "cordova-plugin-device": "2.0.3",
+    "cordova-plugin-facebook4": "4.2.1",
+    "cordova-plugin-file": "6.0.2",
+    "cordova-plugin-file-transfer": "1.7.1",
+    "cordova-plugin-googleplus": "^8.0.0",
+    "cordova-plugin-ionic-keyboard": "2.1.3",
+    "cordova-plugin-ionic-webview": "3.1.2",
+    "cordova-plugin-splashscreen": "5.0.3",
+    "cordova-plugin-statusbar": "2.4.3",
+    "cordova-plugin-whitelist": "1.3.4",
+    "cordova-plugin-x-socialsharing": "5.4.7",
+    "es6-promise-plugin": "4.2.2",
+    "ionic-angular": "3.9.8",
+    "ionicons": "3.0.0",
+    "moment": "2.24.0",
+    "rxjs": "5.5.11",
+    "sw-toolbox": "3.6.0",
+    "zone.js": "0.8.29"
+  },
+  "devDependencies": {
+    "@ionic/app-scripts": "^3.2.4",
+    "typescript": "2.9.2"
+  },
+  "description": "An Ionic project",
+  "cordova": {
+    "plugins": {
+      "cordova-plugin-whitelist": {},
+      "cordova-plugin-statusbar": {},
+      "cordova-plugin-device": {},
+      "cordova-plugin-splashscreen": {},
+      "cordova-plugin-ionic-webview": {
+        "ANDROID_SUPPORT_ANNOTATIONS_VERSION": "27.+"
+      },
+      "cordova-plugin-ionic-keyboard": {},
+      "cordova-plugin-x-socialsharing": {
+        "ANDROID_SUPPORT_V4_VERSION": "24.1.1+"
+      },
+      "cordova-plugin-contacts": {},
+      "cordova-plugin-file-transfer": {},
+      "cordova-plugin-file": {},
+      "cordova-plugin-android-permissions": {},
+      "cordova-plugin-facebook4": {
+        "APP_ID": "2448494805396514",
+        "APP_NAME": "skandal.prank.calls",
+        "FACEBOOK_HYBRID_APP_EVENTS": "false",
+        "FACEBOOK_ANDROID_SDK_VERSION": "5.0.2"
+      },
+      "cordova-plugin-googleplus": {
+        "REVERSED_CLIENT_ID": "589987275792-3n2k21kca3f5sggt3aukg8m92pmukuj0.apps.googleusercontent.com"
+      }
+    },
+    "platforms": [
+      "android"
+    ]
+  }
+}

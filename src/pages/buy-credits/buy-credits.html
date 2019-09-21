@@ -1,0 +1,71 @@
+<ion-header>
+  <ion-navbar>
+    <div class="navbar_wrapper buy_credits_navbar">
+      <!-- <div class="nav_left">
+        <ion-icon name="close"></ion-icon>
+      </div> -->
+      <div class="nav-center">
+        <h3 class="nav-tiltle">{{ "Buy" | translate }}</h3>
+      </div>
+      <remaining-calls-credits-component></remaining-calls-credits-component>
+    </div>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-6 *ngFor="let CreditList of BuyCreditListData">
+        <div
+          class="buy_credits_box"
+          (click)="purchaseCredit($event, CreditList._id)"
+          [ngClass]="{ active: selectedItem == CreditList._id }"
+        >
+          <div class="credit_icon">
+            <img src="assets/imgs/03_Screen-1.png" alt="" />
+          </div>
+          <!-- <div class="credit_text">
+            <h5 class="credits">{{CreditList.credit | translate}}</h5>
+            <p class="text">{{CreditList.amountPerCredit | translate}}</p>
+            <h4 class="price">
+              <span>{{CreditList.creditAmount | translate}}</span>
+            </h4>
+            <div class="tag most_popular" *ngIf="CreditList.role">{{CreditList.role | translate}}</div>
+          </div> -->
+          <div class="credit_text">
+            <h5 class="credits">{{ CreditList.credit }}</h5>
+            <p class="text">{{ CreditList.amountPerCredit }}</p>
+            <h4 class="price">
+              <!-- <small>$</small> -->
+              <span>{{ CreditList.creditAmount }}</span>
+            </h4>
+            <div class="tag most_popular" *ngIf="CreditList.role">
+              {{ CreditList.role }}
+            </div>
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <div class="full_width_button" padding>
+    <button class="earn_free_credits_button" ion-button>
+      EARN FREEE CREDITS
+    </button>
+  </div>
+  <div
+    *ngIf="isLoggedIn(); else elseNotLoggedIn"
+    class="full_width_button"
+    padding
+  >
+    <button
+      class="earn_free_credits_button"
+      ion-button
+      (click)="PurchaseCall()"
+    >
+      {{ "CREDITS" | translate }}
+    </button>
+  </div>
+  <ng-template #elseNotLoggedIn>
+    <authentication-component></authentication-component>
+  </ng-template>
+</ion-content>

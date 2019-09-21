@@ -1,0 +1,7 @@
+{
+  "name": "JokesPhone",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}

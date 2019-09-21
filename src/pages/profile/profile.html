@@ -1,0 +1,96 @@
+<ion-header>
+  <ion-navbar>
+    <div class="navbar_wrapper">
+      <remaining-calls-credits-component></remaining-calls-credits-component>
+    </div>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div class="profile_content">
+    <ion-grid>
+      <ion-row>
+        <h2 class="phone_number_text" text-center>
+          {{ Mobile_Number | translate }}
+        </h2>
+      </ion-row>
+    </ion-grid>
+    <ion-grid>
+      <ion-row>
+        <ion-col col-2></ion-col>
+        <ion-col col-4 text-center (click)="openShareOptions()">
+          <div class="icon-text">
+            <img src="assets/imgs/01_Screen-3.png" alt="" class="icon" />
+            <span class="text">{{ "Invite" | translate }}</span>
+          </div>
+        </ion-col>
+        <ion-col col-4 text-center>
+          <div class="icon-text">
+            <img src="assets/imgs/01_Screen-4.png" alt="" class="icon" />
+            <span class="text">{{ "Support" | translate }}</span>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-grid>
+      <ion-row class="select_language_wrapper">
+        <ion-col col-5 text-center>
+          <ion-label class="select_language_label">{{
+            "Language" | translate
+          }}</ion-label>
+        </ion-col>
+        <ion-col col-7>
+          <ion-select
+            [(ngModel)]="sel_lang"
+            interface="popover"
+            class="select_language_dropdown"
+            (ionChange)="Change(sel_lang)"
+          >
+            <ion-option value="en" selected="true">{{
+              "English" | translate
+            }}</ion-option>
+            <ion-option value="iw">{{ "Hebrew" | translate }}</ion-option>
+          </ion-select>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <div>
+            <button
+              *ngIf="isLoggedIn(); else elseNotLoggedIn"
+              class="my_calls_btn"
+              ion-button
+              (click)="callHistory()"
+            >
+              {{ "MY" | translate }}
+            </button>
+            <ng-template #elseNotLoggedIn>
+              <authentication-component></authentication-component>
+            </ng-template>
+          </div>
+          <div class="tc_link" (click)="termsAndConditions()">
+            <span>{{ "Terms" | translate }}</span>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <div class="footer_call_btn" (click)="pranksList()">
+    <img src="assets/imgs/04_Screen-7.png" alt="" />
+  </div>
+  <div class="footer_menu_links">
+    <div class="left" (click)="home()">
+      <img src="assets/imgs/01_Screen-7.png" alt="" class="icon" />
+      <!-- <span class="text">Home</span> -->
+    </div>
+    <div class="right">
+      <img src="assets/imgs/01_Screen-8_02.png" alt="" class="icon" />
+      <!-- <span class="text">{{'Prank' | translate }}</span> -->
+    </div>
+  </div>
+</ion-footer>

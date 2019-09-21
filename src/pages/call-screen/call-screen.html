@@ -1,0 +1,163 @@
+<ion-header>
+  <ion-navbar>
+    <div class="navbar_wrapper justify-content-end">
+      <remaining-calls-credits-component></remaining-calls-credits-component>
+    </div>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div class="call_screen_content" [ngClass]="{ 'rtl-layout': rtlLayout }">
+    <div class="call_screen_head">
+      <h4 class="call_screen_head_title">{{ "Cousin" | translate }}</h4>
+      <p class="call_screen_head_text">
+        {{ "para" | translate }}
+      </p>
+    </div>
+    <div class="call_screen_body">
+      <!-- Hebrew -->
+      <h5 class="icon_title" *ngIf="rtlLayout">
+        <span class="title">{{ "enter" | translate }}</span>
+        <img src="assets/imgs/02_Screen.png" alt="" class="icon" />
+      </h5>
+      <!-- English -->
+      <h5 class="icon_title" *ngIf="!rtlLayout">
+        <img src="assets/imgs/02_Screen.png" alt="" class="icon" />
+        <span class="title">{{ "enter" | translate }}</span>
+      </h5>
+
+      <div class="sendto_box">
+        <h4 class="sendto_text" *ngIf="rtlLayout">:{{ "send" | translate }}</h4>
+        <h4 class="sendto_text" *ngIf="!rtlLayout">
+          {{ "send" | translate }}:
+        </h4>
+        <div class="call_field call_screen_field">
+          <ion-select
+            [(ngModel)]="chosenCountryDialCode"
+            placeholder="Select Country Code"
+            interface="popover"
+            class="select_country_code"
+            (ionChange)="EmptyPhoneNumber()"
+          >
+            <ion-option
+              *ngFor="
+                let countryCode of countryCodeList;
+                let i = index;
+                trackBy: countryDialCodesIdentify
+              "
+              [value]="countryCode"
+            >
+              {{ countryCode.name | translate }}
+            </ion-option>
+          </ion-select>
+          <input
+            *ngIf="chosenCountryDialCode"
+            class="phone_number_field"
+            [(ngModel)]="clientNumber"
+            placeholder="Phone Number"
+            id="intTextBox"
+            [maxlength]="chosenCountryDialCode.maxNumberOfDigits"
+            (keyup)="validateInputNumberOnly($event)"
+          />
+          <img
+            src="assets/imgs/02_Screen-3.png"
+            class="add_person_icon"
+            (click)="Contact()"
+          />
+        </div>
+        <div text-right>
+          <span class="out_of_prank_call_text">{{ "out" | translate }}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="line_divider"></div>
+
+    <div class="call_screen_body">
+      <div class="sendto_box">
+        <h4 class="sendto_text">{{ "Schedule" | translate }}</h4>
+        <!-- Hebrew -->
+        <div class="select_button" *ngIf="rtlLayout">
+          <button class="now_btn" (click)="getCurrerntTime()">
+            {{ "NOW" | translate }}
+          </button>
+          <ion-item class="select_date_time">
+            <ion-datetime
+              displayFormat="MMM DD, YYYY, HH:mm"
+              useCurrentTimeAsDefaultValue="true"
+              [(ngModel)]="myDate"
+              (click)="getDate(myDate, 1)"
+              (ionChange)="getDate(myDate, 1)"
+              [min]="minDate"
+            >
+            </ion-datetime>
+            <ion-label>{{ "Select" | translate }}</ion-label>
+          </ion-item>
+        </div>
+        <!-- English -->
+        <div class="select_button" *ngIf="!rtlLayout">
+          <ion-item class="select_date_time">
+            <ion-label>{{ "Select" | translate }}</ion-label>
+            <ion-datetime
+              displayFormat="MMM DD, YYYY, HH:mm"
+              useCurrentTimeAsDefaultValue="true"
+              [(ngModel)]="myDate"
+              (click)="getDate(myDate, 1)"
+              (ionChange)="getDate(myDate, 1)"
+              [min]="minDate"
+            >
+            </ion-datetime>
+          </ion-item>
+          <button class="now_btn" (click)="getCurrerntTime()">
+            {{ "NOW" | translate }}
+          </button>
+        </div>
+      </div>
+      <div
+        *ngIf="isLoggedIn(); else elseNotLoggedIn"
+        class="play_prank_call_btn"
+      >
+        <button ion-button (click)="sendPrankCall()">
+          {{ "PLAY" | translate }}
+        </button>
+      </div>
+      <ng-template #elseNotLoggedIn>
+        <authentication-component></authentication-component>
+      </ng-template>
+    </div>
+
+    <div class="line_divider"></div>
+
+    <div class="call_screen_body">
+      <!-- Hebrew -->
+      <div class="total_prank_section" *ngIf="rtlLayout">
+        <div class="right">
+          <span class="text">5 {{ "Credits" | translate }}</span>
+        </div>
+        <div class="left">
+          <img src="assets/imgs/02_Screen-8.png" alt="" class="icon" />
+          <span class="text">{{ "Total" | translate }}</span>
+        </div>
+      </div>
+      <!-- English -->
+      <div class="total_prank_section" *ngIf="!rtlLayout">
+        <div class="left">
+          <img src="assets/imgs/02_Screen-8.png" alt="" class="icon" />
+          <span class="text">{{ "Total" | translate }}</span>
+        </div>
+        <div class="right">
+          <span class="text">5 {{ "Credits" | translate }}</span>
+        </div>
+      </div>
+
+      <div class="text_red">
+        <p text-center>
+          {{ "Please" | translate }}
+        </p>
+      </div>
+      <div class="get_credits_button" (click)="navigateToBuyCreditsPage()">
+        <button ion-button>{{ "Get" | translate }}</button>
+      </div>
+    </div>
+  </div>
+</ion-content>

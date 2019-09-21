@@ -1,0 +1,125 @@
+<ion-header>
+  <ion-navbar>
+    <div class="navbar_wrapper justify-content-end">
+      <remaining-calls-credits-component></remaining-calls-credits-component>
+    </div>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <!-- Slider -->
+  <div class="home_slider">
+    <ion-slides initialSlide=0 speed="1000" loop="true" pager="true" dir="ltr">
+      <ion-slide>
+        <div class="slide_content">
+          <img src="assets/imgs/04_Screen-1.png" alt="" />
+          <h5> {{'home_header' | translate }}</h5>
+          <p>{{'title' | translate }}</p>
+          <button ion-button>{{'btun' | translate}}</button>
+        </div>
+      </ion-slide>
+      <ion-slide>
+        <div class="slide_content">
+          <img src="assets/imgs/04_Screen-1.png" alt="" />
+          <!-- <h5>This Week’s Top Calls</h5>
+          <p>Are you on this week’s list? Click below to see for your self!</p> -->
+          <h5> {{'home_header' | translate }}</h5>
+          <p>{{'title' | translate }}</p>
+          <button ion-button>{{'btun' | translate}}</button>
+        </div>
+      </ion-slide>
+      <ion-slide>
+        <div class="slide_content">
+          <img src="assets/imgs/04_Screen-1.png" alt="" />
+          <!-- <h5>This Week’s Top Calls</h5>
+          <p>Are you on this week’s list? Click below to see for your self!</p> -->
+          <h5> {{'home_header' | translate }}</h5>
+          <p>{{'title' | translate }}</p>
+          <button ion-button>{{'btun' | translate}}</button>
+        </div>
+      </ion-slide>
+    </ion-slides>
+  </div>
+
+  <!-- Prank Call Ibox -->
+  <div class="home_prank_calls_box" *ngFor="let pranklist of prenkList">
+    <div class="home_prank_calls_box_head">
+      <span class="text">{{pranklist.title | translate }}</span>
+      <!-- <img src="assets/imgs/04_Screen-2.png" alt="" class="icon" /> -->
+      <audio controls controlsList="nodownload">
+        <source src="{{pranklist.audioData}}" type="audio/mp3">
+      </audio>
+    </div>
+    <div class="home_prank_calls_box_body">
+      <div class="left">
+        <img src="{{pranklist.image || 'assets/imgs/04_Screen-4.png'}}" alt="" class="icon">
+      </div>
+      <div class="right">
+        <!-- <div class="top">
+          <span class="name">{{'adam' | translate }}</span>
+          <span class="text">{{pranklist.discription | translate}}</span>
+        </div> -->
+        <div class="bottom">
+          <div class="icon_text" (click)="callScreen(pranklist)">
+            <img src="assets/imgs/04_Screen-3.png" alt="" class="icon call_icon" />
+            <span class="text send_call">{{'SEND CALL' | translate}}</span>
+          </div>
+          <div class="share">
+            <!-- <button class="share_icon" (click)="shareCount(pranklist._id)"> -->
+            <button class="share_icon" (click)="openShareOptions(pranklist)">
+              <img src="assets/imgs/share.svg" alt="">
+            </button>
+            <span class="share_count">{{pranklist.shareCount}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Prank Call Ibox -->
+  <!--
+  <div class="home_prank_calls_box">
+    <div class="home_prank_calls_box_head">
+      <span class="text">Phony Chinese Restaurent Order</span>
+      <img src="assets/imgs/04_Screen-2.png" alt="" class="icon" />
+    </div>
+    <div class="home_prank_calls_box_body">
+      <div class="left">
+        <img src="assets/imgs/04_Screen-4.png" alt="" class="icon">
+      </div>
+      <div class="right">
+        <div class="top">
+          <span class="name">adam_101</span>
+          <span class="text">bro i did this to a random number</span>
+        </div>
+        <div class="bottom">
+          <div class="icon_text">
+            <img src="assets/imgs/04_Screen-5.png" alt="" class="icon" />
+            <span class="text">100 Likes</span>
+          </div>
+          <div class="icon_text">
+            <img src="assets/imgs/04_Screen-3.png" alt="" class="icon call_icon" />
+            <span class="text send_call">SEND CALL</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  -->
+</ion-content>
+
+<ion-footer>
+  <div class="footer_call_btn" (click)="pranksList()">
+    <img src="assets/imgs/04_Screen-7.png" alt="" />
+  </div>
+  <div class="footer_menu_links">
+    <div class="left">
+      <img src="assets/imgs/01_Screen-7_02.png" alt="" class="icon" />
+      <!-- <span class="text">{{'Home' | translate }}</span> -->
+    </div>
+    <div class="right" (click)="profilePage()">
+      <img src="assets/imgs/01_Screen-8.png" alt="" class="icon" />
+      <!-- <span class="text">{{'Pranks' | translate}}</span> -->
+    </div>
+  </div>
+</ion-footer>

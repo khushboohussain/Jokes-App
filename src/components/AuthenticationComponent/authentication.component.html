@@ -1,0 +1,11 @@
+<div class="btn_container">
+    <button *ngIf="!IsLoggedIn(); else elseBlock" 
+            ion-button full (click)="FacebookLogin()">{{ 'Facebook-Login' | translate }}</button>
+    <ng-template #elseBlock>
+        <button ion-button full (click)="FacebookLogout()">{{ 'Facebook-Logout' | translate }}</button>
+    </ng-template>
+    <button *ngIf="!isGoogleLogin()"
+            ion-button full (click)="googleLogin()">{{ 'Google-Login' | translate }}</button>
+    <button *ngIf="isGoogleLogin()"
+    ion-button full (click)="googleLogout()">Google Logout</button>    
+</div>

@@ -1,0 +1,166 @@
+// http://ionicframework.com/docs/theming/
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+
+// Fonts
+@font-face {
+  font-family: LatoRegular;
+  src: url("../assets/fonts/lato-regular.ttf");
+}
+
+@font-face {
+  font-family: LatoBold;
+  src: url("../assets/fonts/lato-bold.ttf");
+}
+
+body,
+ion-app {
+  font-family: LatoRegular !important;
+}
+
+.ion-page,
+ion-content {
+  background-image: linear-gradient(to bottom, $gradient-light, $gradient-dark);
+  color: $text-dark !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: LatoBold !important;
+}
+
+// Start Navbar
+.header:after {
+  background: transparent;
+}
+
+.toolbar-background {
+  background-color: transparent;
+}
+
+.navbar_wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  align-items: center;
+  padding: 15px;
+
+  .nav_left,
+  .nav_right {
+    min-width: 60px;
+  }
+
+  // .nav_left {}
+
+  // .nav_right {}
+
+  .nav-center {
+    .nav-tiltle {
+      margin: 0;
+      font-size: 18px;
+    }
+  }
+
+  .nav_left,
+  .nav-center,
+  .nav_right,
+  ion-icon,
+  .icon,
+  .counter,
+  .text {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  ion-icon {
+    font-size: 30px;
+  }
+
+  .icon {
+    width: 25px;
+  }
+
+  .counter {
+    margin-right: 5px;
+  }
+
+  &.has_dynamic_back_btn {
+    .nav-center {
+      .nav-tiltle {
+        margin-left: -44px;
+      }
+    }
+  }
+}
+
+// End Navbar
+
+// Footer
+.footer {
+  background-color: $white;
+}
+
+.footer:before {
+  background: transparent;
+}
+
+.line_divider {
+  height: 1px;
+  background-color: $text-light;
+}
+
+.text_red {
+  color: $red;
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.mt-0 {
+  margin-top: 0 !important;
+}
+
+.justify-content-end {
+  justify-content: flex-end;
+}
+
+.d-block {
+  display: block !important;
+}
+
+.w-100 {
+  width: 100% !important;
+}
+
+.select_language_wrapper {
+  .select_language_label {
+    width: 100%;
+    font-size: 17px;
+    font-weight: bold;
+  }
+
+  .select_language_dropdown {
+    max-width: 100%;
+    background: #fff;
+    border-radius: 60px;
+    padding: 13px 20px;
+  }
+}

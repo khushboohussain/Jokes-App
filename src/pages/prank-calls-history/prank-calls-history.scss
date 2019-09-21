@@ -1,0 +1,147 @@
+page-prank-calls-history {
+  .prank_calls_list {
+    .prank_calls_list_item {
+      padding: 8px;
+      margin: 8px;
+      border-radius: 4px;
+      box-shadow: 0 0 15px 0 rgba($color: $black, $alpha: 0.05);
+      background-color: $white;
+
+      .img,
+      .text {
+        position: relative;
+        z-index: 1;
+      }
+
+      .img,
+      .text,
+      img,
+      .callStatus {
+        display: inline-block;
+        vertical-align: middle;
+        --width: 70px;
+      }
+
+      .img {
+        width: var(--width);
+
+        img {
+          width: calc(var(--width) - 10px);
+        }
+      }
+
+      .text {
+        width: calc(100% - ((var(--width) * 2) + 10px));
+        // overflow-x: hidden;
+
+        h6 {
+          margin: 0 0 5px 0;
+        }
+
+        p {
+          margin: 0;
+          font-size: 12px;
+        }
+      }
+
+      .callStatus {
+        color: $white;
+        // height: 82px;
+        height: 100px;
+        position: relative;
+        z-index: 2;
+
+        p {
+          margin: 0;
+          height: 100%;
+          border-radius: 4px;
+          line-height: 1;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-wrap: wrap;
+          flex-direction: column;
+          text-align: center;
+          width: 74px;
+
+          .download-icon {
+            width: 100%;
+            margin-top: 10px;
+          }
+        }
+
+        .success {
+          background: $green;
+        }
+
+        .error {
+          background: $red;
+        }
+      }
+
+      .date_callStatus {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+      }
+
+      audio::-webkit-media-controls-mute-button {
+        display: none !important;
+      }
+
+      audio::-webkit-media-controls-timeline-container {
+        display: none !important;
+      }
+
+      // audio::-webkit-media-controls-current-time-display {
+      //   display: none !important;
+      // }
+
+      // audio::-webkit-media-controls-time-remaining-display {
+      //   display: none !important;
+      // }
+
+      audio::-webkit-media-controls-timeline {
+        display: none !important;
+      }
+
+      audio::-webkit-media-controls-volume-slider-container {
+        display: none !important;
+      }
+
+      audio::-webkit-media-controls-volume-slider {
+        display: none !important;
+      }
+
+      audio::-webkit-media-controls-seek-back-button {
+        display: none !important;
+      }
+
+      audio::-webkit-media-controls-seek-forward-button {
+        display: none !important;
+      }
+
+      audio::-webkit-media-controls-fullscreen-button {
+        display: none !important;
+      }
+
+      audio::-webkit-media-controls-rewind-button {
+        display: none !important;
+      }
+
+      audio::-webkit-media-controls-return-to-realtime-button {
+        display: none !important;
+      }
+
+      audio::-webkit-media-controls-toggle-closed-captions-button {
+        display: none !important;
+      }
+
+      audio {
+        width: 165px;
+        // height: 35px;
+        margin-bottom: 5px;
+      }
+    }
+  }
+}

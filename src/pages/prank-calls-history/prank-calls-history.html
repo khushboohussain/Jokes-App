@@ -1,0 +1,81 @@
+<ion-header>
+  <ion-navbar>
+    <div class="navbar_wrapper has_dynamic_back_btn">
+      <!--has_dynamic_back_btn-->
+      <!-- <div class="nav_left">
+        <ion-icon name="close"></ion-icon>
+      </div> -->
+      <div class="nav-center d-block w-100">
+        <h3 class="nav-tiltle" text-center>
+          {{ 'CallHistoryPageTitle' | translate }}
+        </h3>
+      </div>
+      <!-- <div class="nav_right">
+        <span class="counter">1+</span>
+        <img src="assets/imgs/01_Screen.png" alt="" class="icon" />
+      </div> -->
+    </div>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div
+    class="prank_calls_list"
+    *ngFor="let historyList of prankCallhistoryData"
+  >
+    <div class="prank_calls_list_item">
+      <div class="img">
+        <img
+          src="{{ historyList.image || 'assets/imgs/04_Screen-4.png' }}"
+          alt=""
+        />
+      </div>
+      <div class="text">
+        <h6>{{ historyList.userNumber }}</h6>
+        <audio controls controlsList="nodownload" preload="metadata">
+          <source src="{{ historyList.audioId }}" type="audio/mp3" />
+        </audio>
+        <p>{{ historyList.createdAt | moment: 'DD-MM-YYYY HH:mm:ss' }}</p>
+      </div>
+      <!-- <div class="call_status_share">
+        <div class="share">
+          <button class="share_icon" (click)="openShareOptions(historyList._id)">
+            <img src="assets/imgs/share.svg" alt="">
+          </button>
+          <span class="share_count">{{historyList.shareCount}}</span>
+        </div> -->
+      <div class="callStatus">
+        <p *ngIf="historyList.status == true" class="success">
+          Call <br />
+          Success <br />
+          <ion-icon
+            name="download"
+            (click)="fileDownload(historyList.audioId)"
+            class="download-icon"
+          ></ion-icon>
+        </p>
+        <p *ngIf="historyList.status == false" class="error">
+          Call <br />
+          Failed <br />
+          <ion-icon
+            name="download"
+            (click)="fileDownload(historyList.audioId)"
+            class="download-icon"
+          ></ion-icon>
+        </p>
+      </div>
+      <!-- </div> -->
+    </div>
+    <!-- 
+    <div class="prank_calls_list_item">
+      <div class="img">
+        <img src="assets/imgs/04_Screen-4.png" alt="" />
+      </div>
+      <div class="text">
+        <h6>Lorem, ipsum dolor.</h6>
+        <p>21-02-2019 4:15 PM</p>
+      </div>
+    </div>
+    -->
+  </div>
+</ion-content>

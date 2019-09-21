@@ -1,0 +1,357 @@
+page-call-screen {
+  .call_screen_content {
+    // Right to Left Layout
+    &.rtl-layout {
+      .icon_title {
+        text-align: right;
+        .icon {
+          margin-right: 0px !important;
+          margin-left: 5px;
+        }
+      }
+      .sendto_text {
+        text-align: right;
+      }
+      .out_of_prank_call_text {
+        text-align: left;
+      }
+      .left {
+        width: 40%;
+        position: relative;
+      }
+      .left img {
+        position: absolute;
+        right: 0px;
+      }
+      .select_date_time {
+        .input-wrapper {
+          ion-label {
+            order: 2;
+          }
+          ion-datetime {
+            order: 1;
+          }
+        }
+      }
+    }
+
+    // Default Layout
+    .call_screen_head {
+      padding: 16px;
+      text-align: center;
+
+      // background-image: linear-gradient(to bottom, $gradient-light, $gradient-dark);
+      .call_screen_head_title {
+        margin: 0 0 16px 0;
+      }
+
+      .call_screen_head_text {
+        color: $white;
+        margin: 0 0 10px 0;
+      }
+    }
+
+    .call_screen_body {
+      padding: 16px;
+      background: $white;
+
+      .icon_title {
+        margin: 0 0 10px 0;
+
+        .icon,
+        .title {
+          display: inline-block;
+          vertical-align: middle;
+        }
+
+        .icon {
+          width: 16px;
+          margin-right: 5px;
+        }
+
+        .title {
+          font-size: 16px;
+        }
+      }
+
+      .sendto_box {
+        position: relative;
+
+        .sendto_text {
+          font-size: 16px;
+          color: $medium-grey;
+          margin: 0 0 10px 0;
+        }
+
+        .call_field {
+          --height: 50px;
+          height: var(--height);
+          border: 1px solid $light-bg;
+          border-radius: var(--height);
+          box-shadow: 0 0 15px 0 rgba($color: $black, $alpha: 0.05);
+
+          padding: {
+            left: 16px;
+            right: 16px;
+          }
+
+          position: relative;
+
+          .country_code,
+          .phone_number_field {
+            height: var(--height);
+            line-height: var(--height);
+            background-color: transparent;
+            border: none;
+            display: inline-block;
+            vertical-align: middle;
+            --width: 100px;
+          }
+
+          .country_code {
+            width: var(--width);
+          }
+
+          .phone_number_field {
+            width: calc(100% - (var(--width) + 4px));
+          }
+        }
+
+        .call_screen_field {
+          position: relative;
+          display: flex;
+          align-items: center;
+
+          ion-select,
+          .phone_number_field {
+            --width: 70px;
+            position: relative;
+            z-index: 5;
+          }
+
+          ion-select {
+            width: var(--width);
+            padding: 14.5px 8px 14.5px 0;
+            max-width: 100%;
+          }
+
+          .phone_number_field {
+            width: calc(100% - var(--width));
+          }
+
+          .add_person_icon {
+            position: absolute;
+            --width: 20px;
+            width: var(--width);
+            line-height: var(--width);
+            display: block;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 999;
+          }
+
+          ion-searchbar {
+            padding: 0;
+
+            .searchbar-search-icon {
+              display: none;
+            }
+
+            .searchbar-input {
+              box-shadow: none;
+              padding: 0 20px 0 0;
+            }
+          }
+        }
+
+        .display_contact_list {
+          height: 0;
+          transition: all 0.2s ease-in;
+          overflow: hidden;
+          box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.05);
+          position: absolute;
+          margin-top: 5px;
+          left: 0;
+          right: 0;
+          background-color: #fff;
+          z-index: 99999;
+
+          &.active {
+            height: 300px;
+          }
+
+          .display_contact_list_inner {
+            border: 1px solid #ebebeb;
+            height: 100%;
+            --padding: 10px;
+
+            .display_contact_list_head {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              padding: var(--padding);
+              border-bottom: 1px solid #ebebeb;
+              --icon-width: 35px;
+
+              .contact_search_bar {
+                width: calc(100% - (var(--icon-width) * 2));
+                border: 1px solid #ebebeb;
+                height: var(--icon-width);
+                line-height: var(--icon-height);
+                text-indent: 10px;
+              }
+
+              .close_icon,
+              .seach_icon {
+                width: var(--icon-width);
+                height: var(--icon-width);
+                line-height: var(--icon-width);
+                text-align: center;
+              }
+            }
+
+            .display_contact_list_body {
+              overflow-y: auto;
+              height: calc(100% - 56px);
+
+              .contact_list {
+                margin: 0;
+                padding-left: 0;
+
+                .contact_list_item {
+                  list-style: none;
+                  padding: 10px;
+                  display: flex;
+
+                  &:not(:last-child) {
+                    border-bottom: 1px solid #ebebeb;
+                  }
+
+                  .contact_list_left {
+                    --icon-width: 35px;
+                    width: var(--icon-width);
+                    text-align: center;
+                    align-self: center;
+
+                    ion-icon {
+                      font-size: 36px;
+                    }
+                  }
+
+                  .contact_list_right {
+                    width: calc(100% - var(--icon-width));
+                    padding-left: 10px;
+
+                    .contact_name {
+                      margin: 0;
+                    }
+
+                    .contact_number {
+                      margin: 0;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        .out_of_prank_call_text {
+          text-decoration: underline;
+          margin: 5px;
+          display: block;
+        }
+
+        .select_button {
+          --width: 100px;
+
+          .select_date_time,
+          .now_btn {
+            display: inline-block;
+            vertical-align: middle;
+          }
+
+          .select_date_time {
+            padding-left: 0;
+            width: calc(100% - (var(--width) + 4px));
+          }
+
+          .now_btn {
+            width: var(--width);
+            margin: 0;
+            height: auto;
+            min-height: calc(4.4rem + 2px);
+            line-height: 1;
+            background-color: $yellow;
+            // color: $white;
+          }
+        }
+      }
+
+      .play_prank_call_btn {
+        text-align: center;
+        margin-top: 16px;
+
+        button {
+          margin: 0;
+          min-height: initial;
+          height: auto;
+          box-shadow: 0 0 15px 0 rgba($color: $black, $alpha: 0.05);
+          background-color: $yellow;
+          color: $text-dark;
+          padding: 16px 24px;
+        }
+      }
+
+      .total_prank_section {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        align-content: center;
+
+        .left,
+        .right,
+        .icon,
+        .text {
+          display: inline-block;
+          vertical-align: middle;
+        }
+
+        .icon {
+          width: 21px;
+          margin-right: 5px;
+        }
+
+        .right {
+          .text {
+            color: $green;
+          }
+        }
+      }
+
+      .get_credits_button {
+        margin-top: 25px;
+
+        button {
+          margin: 0;
+          min-height: initial;
+          height: auto;
+          box-shadow: 0 0 15px 0 rgba($color: $black, $alpha: 0.05);
+          background-color: $green;
+          color: $white;
+          padding: 20px 24px;
+          width: 100%;
+          border-radius: 50px;
+
+          background: {
+            image: url('../assets/imgs/02_Screen-9.png');
+            repeat: no-repeat;
+            size: 10px;
+            position: calc(100% - 25px) center;
+          }
+        }
+      }
+    }
+  }
+}
